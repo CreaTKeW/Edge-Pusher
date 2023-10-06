@@ -9,6 +9,7 @@ public class CharacterMovement : MonoBehaviour
     private Animator anim;
     private bool rightTurn = true;
     private Rigidbody rb;
+    private GameManager gameManager;
 
 
     // Start is called before the first frame update
@@ -16,11 +17,17 @@ public class CharacterMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (!gameManager.gameStarted)
+        {
+            return;
+        }
+        else { anim.SetTrigger("gameStarted"); }
         rb.transform.position = transform.position + transform.forward * speed * Time.deltaTime;       
     }
 
