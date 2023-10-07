@@ -1,19 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class ButtonBehaviour : MonoBehaviour
 {
     public GameObject MainMenuUI;
     public GameObject SettingsUI;
+    public GameObject EndGameUI;
     private GameManager gameManager;
 
+    public void Awake()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+        gameManager.highscore = PlayerPrefs.GetInt("HIGHSCORE", 0);
+        gameManager.highScoreText.text = gameManager.highscore.ToString();
+    }
     // Start is called before the first frame update
     void Start()
-    {
+    {       
         MainMenuUI.SetActive(true);
-        SettingsUI.SetActive(false);
-        gameManager = FindObjectOfType<GameManager>();
+        SettingsUI.SetActive(false);              
+        EndGameUI.SetActive(false);
     }
 
     // Update is called once per frame
@@ -25,9 +34,9 @@ public class ButtonBehaviour : MonoBehaviour
 
     public void StartGame()
     {
-        MainMenuUI.SetActive(false);
-        SettingsUI.SetActive(false);
         gameManager.StartGame();
+        MainMenuUI.SetActive(false);
+        SettingsUI.SetActive(false);      
     }
 
     public void Settings()
@@ -40,6 +49,11 @@ public class ButtonBehaviour : MonoBehaviour
     {
         SettingsUI.SetActive(false);
         MainMenuUI.SetActive(true);
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(0);
     }
 
     public void OnApplicationQuit()

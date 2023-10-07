@@ -10,6 +10,7 @@ public class CharacterMovement : MonoBehaviour
     private bool rightTurn = true;
     private Rigidbody rb;
     private GameManager gameManager;
+    public GameObject EndGameUI;
 
 
     // Start is called before the first frame update
@@ -43,10 +44,21 @@ public class CharacterMovement : MonoBehaviour
         {
             anim.SetTrigger("isDead");
         }
+
+        if(transform.position.y < -2f)
+        {
+            gameManager.EndGame();
+            EndGameUI.SetActive(true);
+        }
     }
 
     void SwitchSides()
     {
+        if(!gameManager.gameStarted)
+        {
+            return;
+        }
+
         rightTurn = !rightTurn;
         if(rightTurn)
         {
@@ -57,5 +69,14 @@ public class CharacterMovement : MonoBehaviour
             rb.transform.rotation = Quaternion.Euler(0f, -45f, 0f);
         }
         
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Crystal")
+        {
+            Destroy(other.gameObject);
+            gameManager.IncreaseScore();
+        }
     }
 }
