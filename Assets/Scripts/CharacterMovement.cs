@@ -10,6 +10,8 @@ public class CharacterMovement : MonoBehaviour
     private bool rightTurn = true;
     private Rigidbody rb;
     private GameManager gameManager;
+    public AudioSource pointSound;
+    public GameObject crystalParticleEffect;
     public GameObject EndGameUI;
 
 
@@ -74,9 +76,12 @@ public class CharacterMovement : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Crystal")
-        {
-            Destroy(other.gameObject);
+        {          
             gameManager.IncreaseScore();
+            pointSound.Play();
+            GameObject particle = Instantiate(crystalParticleEffect, rayStart.transform.position, Quaternion.identity);
+            Destroy(particle, 2f);
+            Destroy(other.gameObject);
         }
     }
 }
