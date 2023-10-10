@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 6367783534498752421}
   - component: {fileID: 6367783534498752420}
   m_Layer: 8
-  m_Name: Crystalsv10
+  m_Name: Crystal
   m_TagString: Crystal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

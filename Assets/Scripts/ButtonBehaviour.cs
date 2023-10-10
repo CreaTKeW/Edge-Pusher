@@ -19,7 +19,7 @@ public class ButtonBehaviour : MonoBehaviour
     }
     // Start is called before the first frame update
     void Start()
-    {       
+    {        
         MainMenuUI.SetActive(true);
         SettingsUI.SetActive(false);              
         EndGameUI.SetActive(false);
@@ -36,7 +36,8 @@ public class ButtonBehaviour : MonoBehaviour
     {
         gameManager.StartGame();
         MainMenuUI.SetActive(false);
-        SettingsUI.SetActive(false);      
+        SettingsUI.SetActive(false);
+        FindObjectOfType<Road>().RoadBuild();
     }
 
     public void Settings()
