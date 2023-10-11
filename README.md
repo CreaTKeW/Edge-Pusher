@@ -54,13 +54,13 @@ Contributions to ZombieRunner are welcome! If you want to contribute to the proj
 
 ## Screenshots
 
-![MainMenuView](https://github.com/CreaTKeW/ZombieRunner/blob/main/screenshots/1.png?raw=true)
+![MainMenuView](https://github.com/CreaTKeW/ZombieRunner/blob/main/Screenshots/1.png?raw=true)
 
-![SettingsView](https://github.com/CreaTKeW/ZombieRunner/blob/main/screenshots/2.png?raw=true)
+![SettingsView](https://github.com/CreaTKeW/ZombieRunner/blob/main/Screenshots/2.png?raw=true)
 
-![GameplayView](https://github.com/CreaTKeW/ZombieRunner/blob/main/screenshots/3.png?raw=true)
+![GameplayView](https://github.com/CreaTKeW/ZombieRunner/blob/main/Screenshots/3.png?raw=true)
 
-![EndGameView](https://github.com/CreaTKeW/ZombieRunner/blob/main/screenshots/4.png?raw=true)
+![EndGameView](https://github.com/CreaTKeW/ZombieRunner/blob/main/Screenshots/4.png?raw=true)
 
 ## Contact and Support
 
