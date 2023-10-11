@@ -5,7 +5,7 @@ using UnityEngine;
 public class CharacterMovement : MonoBehaviour
 {
     [SerializeField] Transform rayStart;
-    [SerializeField] float speed = 1f;
+    public float speed = 1f;
     private Animator anim;
     private bool rightTurn = true;
     private Rigidbody rb;
@@ -46,6 +46,7 @@ public class CharacterMovement : MonoBehaviour
         {
             anim.SetTrigger("isDead");
         }
+        else { anim.SetTrigger("isAlive"); }
 
         if(transform.position.y < -2f)
         {

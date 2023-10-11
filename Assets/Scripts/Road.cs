@@ -12,7 +12,7 @@ public class Road : MonoBehaviour
 
     public void RoadBuild()
     {
-        InvokeRepeating("CreateRoad", 1f, .35f);
+        InvokeRepeating("CreateRoad", 1f, .2f);
     }
     public void CreateRoad()
     {
