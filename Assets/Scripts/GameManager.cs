@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
-using Unity.PlasticSCM.Editor.WebApi;
 
 public class GameManager : MonoBehaviour
 {
@@ -50,7 +49,6 @@ public class GameManager : MonoBehaviour
             float addSpeed = 1.1f;            
             float currentSpeed = characterSpeed * addSpeed;
             characterMovement.speed = currentSpeed;
-            Debug.Log(currentSpeed.ToString());
         }
         if (highscore < score)
         {
