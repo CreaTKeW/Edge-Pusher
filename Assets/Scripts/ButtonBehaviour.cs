@@ -1,20 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class ButtonBehaviour : MonoBehaviour
 {
-    public GameObject MainMenuUI;
-    public GameObject SettingsUI;
-    public GameObject EndGameUI;
+    [SerializeField] private GameObject MainMenuUI;
+    [SerializeField] private GameObject SettingsUI;
+    [SerializeField] private GameObject EndGameUI;
     private GameManager gameManager;
 
-    public void Awake()
+    private void Awake()
     {
-        gameManager = FindObjectOfType<GameManager>();
-        gameManager.highscore = PlayerPrefs.GetInt("HIGHSCORE", 0);
-        gameManager.highScoreText.text = gameManager.highscore.ToString();
+        gameManager = FindObjectOfType<GameManager>();       
     }
     // Start is called before the first frame update
     void Start()
@@ -24,14 +20,7 @@ public class ButtonBehaviour : MonoBehaviour
         EndGameUI.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-
-    public void StartGame()
+    private void StartGame()
     {
         gameManager.StartGame();
         MainMenuUI.SetActive(false);
@@ -39,24 +28,24 @@ public class ButtonBehaviour : MonoBehaviour
         FindObjectOfType<Road>().RoadBuild();
     }
 
-    public void Settings()
+    private void Settings()
     {
         MainMenuUI.SetActive(false);
         SettingsUI.SetActive(true);
     }
 
-    public void MainMenu()
+    private void MainMenu()
     {
         SettingsUI.SetActive(false);
         MainMenuUI.SetActive(true);
     }
 
-    public void Restart()
+    private void Restart()
     {
         SceneManager.LoadScene(0);
     }
 
-    public void OnApplicationQuit()
+    private void OnApplicationQuit()
     {
         #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;

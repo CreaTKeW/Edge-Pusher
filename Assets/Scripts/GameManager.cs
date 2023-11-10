@@ -1,26 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    CharacterMovement characterMovement;
+    private CharacterMovement characterMovement;
+    
     [SerializeField] GameObject player;
-
-    public bool gameStarted;
-    public TextMeshProUGUI scoreText;    
-    public TextMeshProUGUI highScoreText;
-    public TextMeshProUGUI endGameScoreText;
-    public TextMeshProUGUI endGameHighscoreText;
-    public float characterSpeed;
-    public int score;
-    public int highscore;
+    [SerializeField] public bool gameStarted;
+    [SerializeField] private TextMeshProUGUI scoreText;    
+    [SerializeField] private TextMeshProUGUI highScoreText;
+    [SerializeField] private TextMeshProUGUI endGameScoreText;
+    [SerializeField] private TextMeshProUGUI endGameHighscoreText;
+    [SerializeField] private float characterSpeed;
+    [SerializeField] private int score;
+    [SerializeField] private int highscore;
 
     void Awake()
     {
-        characterMovement = player.GetComponent<CharacterMovement>();        
+        characterMovement = player.GetComponent<CharacterMovement>();
+
+        highScoreText.text = highscore.ToString();
+        highscore = PlayerPrefs.GetInt("HIGHSCORE", 0);
     }
     private void Update()
     {
