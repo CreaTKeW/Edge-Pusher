@@ -6,13 +6,14 @@ public class ButtonBehaviour : MonoBehaviour
     [SerializeField] private GameObject MainMenuUI;
     [SerializeField] private GameObject SettingsUI;
     [SerializeField] private GameObject EndGameUI;
+
     private GameManager gameManager;
 
     private void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();       
     }
-    // Start is called before the first frame update
+
     void Start()
     {        
         MainMenuUI.SetActive(true);

@@ -2,7 +2,7 @@
 
 public class SkyboxRotator : MonoBehaviour
 {
-    public float RotationPerSecond = 1;
+    [SerializeField] private float RotationPerSecond = 1;
 
     void Update()
     {

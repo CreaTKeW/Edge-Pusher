@@ -7,31 +7,30 @@ public class GameManager : MonoBehaviour
     
     [SerializeField] GameObject player;
     [SerializeField] public bool gameStarted;
+
+    [Header("Scoreboard Text")]
     [SerializeField] private TextMeshProUGUI scoreText;    
     [SerializeField] private TextMeshProUGUI highScoreText;
     [SerializeField] private TextMeshProUGUI endGameScoreText;
     [SerializeField] private TextMeshProUGUI endGameHighscoreText;
-    [SerializeField] private float characterSpeed;
+
+    [Header("Scoreboard")]
     [SerializeField] private int score;
     [SerializeField] private int highscore;
 
     void Awake()
     {
         characterMovement = player.GetComponent<CharacterMovement>();
-
+        highscore = PlayerPrefs.GetInt("ZombieRunnerHighscore", 0);
         highScoreText.text = highscore.ToString();
-        highscore = PlayerPrefs.GetInt("HIGHSCORE", 0);
     }
-    private void Update()
-    {
-        characterSpeed = characterMovement.speed;
-    }
+
     public void StartGame()
     {        
-        gameStarted = true;       
-        scoreText.text = score.ToString();
+        scoreText.text = score.ToString();        
         endGameScoreText.text = score.ToString();
         endGameHighscoreText.text = highscore.ToString();
+        gameStarted = true;
     }
 
     public void EndGame()
@@ -44,15 +43,18 @@ public class GameManager : MonoBehaviour
         score++;
         scoreText.text = score.ToString();
         endGameScoreText.text = score.ToString();
-        if(score % 5 == 0) // function that adds speed each time character gains 5 points
-        {            
-            float addSpeed = 1.1f;            
-            float currentSpeed = characterSpeed * addSpeed;
-            characterMovement.speed = currentSpeed;
+
+        if (characterMovement.speed < 5)
+        {
+            if (score % 5 == 0) 
+            {
+                characterMovement.speed += 0.25f;
+            }
         }
+
         if (highscore < score)
         {
-            PlayerPrefs.SetInt("HIGHSCORE", score);
+            PlayerPrefs.SetInt("ZombieRunnerHighscore", score);
         }
     }
 }

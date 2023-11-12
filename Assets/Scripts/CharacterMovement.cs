@@ -1,17 +1,17 @@
 using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
-{
-    [SerializeField] Transform rayStart;
-    public float speed = 1f;
+{    
+    [SerializeField] public float speed;    
+    [SerializeField] private GameManager gameManager;
+    [SerializeField] private AudioSource pointSound;
+    [SerializeField] private GameObject crystalParticleEffect;
+    [SerializeField] private GameObject EndGameUI;
+    [SerializeField] private Transform rayStart;
+
     private Animator anim;
     private bool rightTurn = true;
-    private Rigidbody rb;
-    private GameManager gameManager;
-    public AudioSource pointSound;
-    public GameObject crystalParticleEffect;
-    public GameObject EndGameUI;
-
+    private Rigidbody rb;    
 
     // Start is called before the first frame update
     void Start()

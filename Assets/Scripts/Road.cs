@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class Road : MonoBehaviour
 {
-    public GameObject roadPrefab;
-    public Vector3 lastPosition;
-    public float offset = 0.7f;
+    [SerializeField] private GameObject roadPrefab;
+    [SerializeField] private Vector3 lastPosition;
+    [SerializeField] private float offset = 0.7f;
 
     private int roadCount = 0;
 
