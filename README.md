@@ -36,7 +36,7 @@ For details, please refer to the [LICENSE](https://github.com/CreaTKeW/ZombieRun
 
 ### Local Play
 
-To play Fruit Slayer locally on your machine, follow these steps:
+To play Zombie Runner locally on your machine, follow these steps:
 
 1. Download the latest game version files from [the releases section of this repository](https://github.com/CreaTKeW/ZombieRunner/releases).
 2. Extract the downloaded files to a folder on your computer.
@@ -46,7 +46,7 @@ To play Fruit Slayer locally on your machine, follow these steps:
 
 You can play Zombie Runner on itch.io by following these steps:
 
-1. Visit the [Fruit Slayer page on itch.io](https://creatkew.itch.io/zombie-runner).
+1. Visit the [Zombie Runner page on itch.io](https://creatkew.itch.io/zombie-runner).
 2. Click on the "Run Game" button to access the game.
 
 ## Screenshots
